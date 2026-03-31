@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Quantity Measurement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="qm-header">
+        <h1>Welcome To Quantity Measurement</h1>
+    </header>
+
+    <main class="qm-main">
+        <!-- Auth section -->
+        <section class="qm-auth" id="auth-section">
+            <div class="auth-card">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-row">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required />
+                    </div>
+                    <button type="submit" class="btn primary-btn">Login</button>
+                </form>
+
+                <h3 class="auth-separator">or</h3>
+
+                <h2>Register</h2>
+                <form id="register-form">
+                    <div class="form-row">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" required />
+                    </div>
+                    <button type="submit" class="btn secondary-btn">Register</button>
+                </form>
+                <p class="auth-message" id="auth-message"></p>
+            </div>
+        </section>
+
+        <!-- Main dashboard -->
+        <section class="qm-dashboard hidden" id="dashboard-section">
+            <!-- Logged-in status -->
+            <div class="qm-user-status">
+                <span id="user-email-label"></span>
+                <button id="logout-button" class="btn small-btn">Logout</button>
+            </div>
+
+            <!-- Choose Type -->
+            <section class="qm-section">
+                <h2>Choose Type</h2>
+                <div class="qm-type-cards" id="type-cards">
+                    <button class="type-card active" data-category="Length">
+                        <span class="type-icon">📏</span>
+                        <span class="type-label">Length</span>
+                    </button>
+                    <button class="type-card" data-category="Weight">
+                        <span class="type-icon">⚖️</span>
+                        <span class="type-label">Weight</span>
+                    </button>
+                    <button class="type-card" data-category="Temperature">
+                        <span class="type-icon">🌡️</span>
+                        <span class="type-label">Temperature</span>
+                    </button>
+                    <button class="type-card" data-category="Volume">
+                        <span class="type-icon">🥛</span>
+                        <span class="type-label">Volume</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Choose Action -->
+            <section class="qm-section">
+                <h2>Choose Action</h2>
+                <div class="qm-action-tabs" id="action-tabs">
+                    <button class="action-tab active" data-action="Comparison">Comparison</button>
+                    <button class="action-tab" data-action="Conversion">Conversion</button>
+                    <button class="action-tab" data-action="Arithmetic">Arithmetic</button>
+                </div>
+            </section>
+
+            <!-- Operation Panels -->
+            <section class="qm-section">
+                <!-- Comparison -->
+                <div id="comparison-panel" class="operation-panel">
+                    <form id="comparison-form" class="panel-grid">
+                        <div class="panel-column">
+                            <h3>FROM</h3>
+                            <input type="number" step="any" id="compare-from-value" class="value-input" required />
+                            <select id="compare-from-unit" class="unit-select"></select>
+                        </div>
+                        <div class="panel-column">
+                            <h3>TO</h3>
+                            <input type="number" step="any" id="compare-to-value" class="value-input" required />
+                            <select id="compare-to-unit" class="unit-select"></select>
+                        </div>
+                        <div class="panel-actions">
+                            <button type="submit" class="btn primary-btn full-width">Compare</button>
+                        </div>
+                    </form>
+                    <div class="result-box" id="comparison-result-box">
+                        <span id="comparison-result-label">Equal:</span>
+                        <span id="comparison-result-value"></span>
+                    </div>
+                </div>
+
+                <!-- Conversion -->
+                <div id="conversion-panel" class="operation-panel hidden">
+                    <form id="conversion-form" class="panel-grid">
+                        <div class="panel-column">
+                            <h3>FROM</h3>
+                            <input type="number" step="any" id="convert-from-value" class="value-input" required />
+                            <select id="convert-from-unit" class="unit-select"></select>
+                        </div>
+                        <div class="panel-column">
+                            <h3>TO</h3>
+                            <input type="number" step="any" id="convert-to-value" class="value-input" readonly />
+                            <select id="convert-to-unit" class="unit-select"></select>
+                        </div>
+                        <div class="panel-actions">
+                            <button type="submit" class="btn primary-btn full-width">Convert</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Arithmetic -->
+                <div id="arithmetic-panel" class="operation-panel hidden">
+                    <form id="arithmetic-form" class="arithmetic-grid">
+                        <div class="panel-column">
+                            <h3>VALUE 1</h3>
+                            <input type="number" step="any" id="arith-value1" class="value-input" required />
+                            <select id="arith-unit1" class="unit-select"></select>
+                        </div>
+
+                        <div class="panel-operator">
+                            <span id="arith-operator">+</span>
+                        </div>
+
+                        <div class="panel-column">
+                            <h3>VALUE 2</h3>
+                            <input type="number" step="any" id="arith-value2" class="value-input" required />
+                            <select id="arith-unit2" class="unit-select"></select>
+                        </div>
+
+                        <div class="panel-actions">
+                            <button type="submit" class="btn primary-btn full-width">Calculate</button>
+                        </div>
+                    </form>
+
+                    <div class="arith-result-box">
+                        <div class="arith-result-value">
+                            <span>Result:</span>
+                            <span id="arith-result-value"></span>
+                        </div>
+                        <div class="arith-result-unit">
+                            <select id="arith-result-unit" class="unit-select"></select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History (User + Admin) -->
+            <section class="qm-section">
+    <h2>History</h2>
+
+    <div class="history-header">
+        <div class="history-my-header">
+            <h3>My History</h3>
+            <button id="load-my-history-button" class="btn small-btn">Load My History</button>
+        </div>
+    </div>
+
+    <div class="history-body">
+        <div class="history-block">
+            <div class="history-container" id="my-history-container"></div>
+        </div>
+
+        <div class="history-block hidden" id="admin-history-section">
+            <div class="admin-history-header">
+                <h3>Admin: User History</h3>
+                <div class="admin-history-controls">
+                    <input
+                        type="number"
+                        id="admin-history-user-id"
+                        class="value-input"
+                        placeholder="User ID" />
+                    <button id="admin-history-button" class="btn small-btn">
+                        Search
+                    </button>
+                </div>
+            </div>
+            <div class="history-container" id="admin-history-container"></div>
+        </div>
+    </div>
+</section>
+
+            <!-- Global error/message area -->
+            <section class="qm-section">
+                <div id="global-message" class="global-message"></div>
+            </section>
+        </section>
+    </main>
+
+    <script src="js/apiClient.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/operations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

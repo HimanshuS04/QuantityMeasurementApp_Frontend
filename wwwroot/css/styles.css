@@ -1,0 +1,436 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #f4f7ff;
+    color: #1b1c1f;
+}
+
+/* Header */
+
+.qm-header {
+    background: linear-gradient(90deg, #3f51b5, #536dfe);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.qm-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+/* Main container */
+
+.qm-main {
+    max-width: 1100px;
+    margin: 1.5rem auto;
+    padding: 0 1rem 2rem;
+}
+
+/* Auth section */
+
+.qm-auth {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.auth-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.auth-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.auth-separator {
+    margin: 1.25rem 0 0.75rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.form-row {
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.form-row label {
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.form-row input {
+    padding: 0.5rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    font-size: 0.95rem;
+}
+
+.form-row input:focus {
+    outline: none;
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 1px rgba(63, 81, 181, 0.2);
+}
+
+.auth-message {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #d32f2f;
+}
+
+/* Dashboard */
+
+.qm-dashboard {
+    background: #f4f7ff;
+}
+
+/* User status */
+
+.qm-user-status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Sections */
+
+.qm-section {
+    margin-bottom: 1.5rem;
+}
+
+/* Type cards */
+
+.qm-type-cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.type-card {
+    flex: 1 1 120px;
+    min-width: 140px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: transform 0.1s ease, border-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.type-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+}
+
+.type-card.active {
+    border-color: #4caf50;
+}
+
+.type-icon {
+    font-size: 1.5rem;
+}
+
+.type-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Action tabs */
+
+.qm-action-tabs {
+    display: flex;
+    gap: 0.5rem;
+    background: #e7ebff;
+    padding: 0.3rem;
+    border-radius: 999px;
+    width: fit-content;
+}
+
+.action-tab {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #3f51b5;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.action-tab:hover {
+    background: rgba(63, 81, 181, 0.1);
+}
+
+.action-tab.active {
+    background: #3f51b5;
+    color: #ffffff;
+}
+
+/* Operation panels */
+
+.operation-panel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-top: 0.75rem;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.panel-column h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: #555;
+}
+
+.value-input {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #d9dde5;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.value-input:focus {
+    outline: none;
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 1px rgba(63, 81, 181, 0.18);
+}
+
+.unit-select {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #d9dde5;
+    font-size: 0.9rem;
+    background-color: #fff;
+}
+
+.panel-actions {
+    grid-column: 1 / -1;
+}
+
+/* Arithmetic panel */
+
+.arithmetic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: center;
+}
+
+.panel-operator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #3f51b5;
+}
+
+.arith-result-box {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f3fbff;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+}
+
+.arith-result-value span:first-child {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.arith-result-value span:last-child {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0a8f08;
+}
+
+/* Result boxes */
+
+.result-box {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.result-box span:last-child {
+    margin-left: 0.3rem;
+    font-weight: 600;
+}
+
+.global-message {
+    min-height: 1.5rem;
+    font-size: 0.9rem;
+    color: #d32f2f;
+}
+
+/* History */
+
+.history-header {
+    margin-bottom: 0.5rem;
+}
+
+.history-my-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.history-block {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0.75rem;
+    border: 1px solid #e0e3f0;
+}
+
+.history-container {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.history-table thead {
+    background: #f4f6ff;
+}
+
+.history-table th,
+.history-table td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid #edf0f8;
+}
+
+.history-table tr:hover {
+    background: #f9fbff;
+}
+
+.admin-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-history-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Buttons */
+
+.btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-btn {
+    background: #3f51b5;
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background: #303f9f;
+    box-shadow: 0 4px 12px rgba(63, 81, 181, 0.35);
+}
+
+.secondary-btn {
+    background: #ffffff;
+    color: #3f51b5;
+    border: 1px solid #3f51b5;
+}
+
+.secondary-btn:hover {
+    background: #e7ebff;
+}
+
+.small-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Utility */
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .qm-main {
+        padding: 0 0.5rem 2rem;
+    }
+
+    .panel-grid,
+    .arithmetic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qm-type-cards {
+        flex-direction: column;
+    }
+
+    .action-tab {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .arith-result-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
