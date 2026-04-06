@@ -1,0 +1,33 @@
+.section-card {
+  margin-top: 1.5rem;
+}
+
+.login-note {
+  background: #fff8e1;
+  color: #8d6e63;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.history-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.history-header button {
+  padding: 0.6rem 1rem;
+}
+
+.error {
+  color: #c62828;
+  margin-bottom: 1rem;
+}

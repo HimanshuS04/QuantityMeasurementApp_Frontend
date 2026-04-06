@@ -1,0 +1,45 @@
+<section class="auth-panel">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>Authentication</h2>
+      <button class="close-btn" (click)="closePanel.emit()">✕</button>
+    </div>
+
+    <p>Login is optional for quantity operations, but required for history.</p>
+
+    <div class="auth-grid">
+      <div class="auth-form">
+        <h3>Login</h3>
+        <label>Email</label>
+        <input [(ngModel)]="loginEmail" type="email" />
+
+        <label>Password</label>
+        <input [(ngModel)]="loginPassword" type="password" />
+
+        <button (click)="onLogin()" [disabled]="isLoginLoading">
+          {{ isLoginLoading ? 'Logging in...' : 'Login' }}
+        </button>
+      </div>
+
+      <div class="auth-form">
+        <h3>Register</h3>
+        <label>Email</label>
+        <input [(ngModel)]="registerEmail" type="email" />
+
+        <label>Password</label>
+        <input [(ngModel)]="registerPassword" type="password" />
+
+        <label>Confirm Password</label>
+        <input [(ngModel)]="registerConfirmPassword" type="password" />
+
+        <button (click)="onRegister()" [disabled]="isRegisterLoading">
+          {{ isRegisterLoading ? 'Registering...' : 'Register' }}
+        </button>
+      </div>
+    </div>
+
+    <p class="message" [class.error]="messageType === 'error'" [class.success]="messageType === 'success'">
+      {{ message }}
+    </p>
+  </div>
+</section>

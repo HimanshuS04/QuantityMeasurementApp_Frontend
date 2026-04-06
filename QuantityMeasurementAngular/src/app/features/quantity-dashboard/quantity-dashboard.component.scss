@@ -1,0 +1,11 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.panel {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+}

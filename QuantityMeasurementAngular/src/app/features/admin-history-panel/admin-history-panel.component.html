@@ -1,0 +1,14 @@
+<div class="admin-history-card">
+  <h3>Admin: User History</h3>
+
+  <div class="admin-form">
+    <input [(ngModel)]="userId" type="number" placeholder="User ID" />
+    <button (click)="loadHistory()" [disabled]="isLoading">
+      {{ isLoading ? 'Loading...' : 'Load User History' }}
+    </button>
+  </div>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <app-history-table [operations]="operations"></app-history-table>
+</div>

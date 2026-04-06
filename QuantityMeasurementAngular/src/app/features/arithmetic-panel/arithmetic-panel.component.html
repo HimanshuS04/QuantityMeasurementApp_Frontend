@@ -1,0 +1,50 @@
+<div class="panel">
+  <div class="grid">
+    <div>
+      <label>Operation</label>
+      <select [(ngModel)]="operation">
+        <option value="ADD">Addition</option>
+        <option value="SUBTRACT">Subtraction</option>
+        <option value="DIVIDE">Division</option>
+      </select>
+    </div>
+
+    <div>
+      <label>First Value</label>
+      <input [(ngModel)]="firstValue" type="number" />
+    </div>
+
+    <div>
+      <label>First Unit</label>
+      <select [(ngModel)]="firstUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Second Value</label>
+      <input [(ngModel)]="secondValue" type="number" />
+    </div>
+
+    <div>
+      <label>Second Unit</label>
+      <select [(ngModel)]="secondUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="operation !== 'DIVIDE'">
+      <label>Result Unit</label>
+      <select [(ngModel)]="resultUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <button (click)="calculate()" [disabled]="isLoading">
+      {{ isLoading ? 'Calculating...' : 'Calculate' }}
+    </button>
+  </div>
+
+  <p class="result" *ngIf="result">Result: {{ result }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

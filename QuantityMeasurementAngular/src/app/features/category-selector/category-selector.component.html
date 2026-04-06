@@ -1,0 +1,14 @@
+<section class="section-card">
+  <h2>Choose Type</h2>
+  <div class="card-list">
+    <button
+      type="button"
+      class="choice-card"
+      *ngFor="let category of categories"
+      [class.active]="selectedCategory === category.label"
+      (click)="selectCategory(category.label)">
+      <span class="icon">{{ category.icon }}</span>
+      <span>{{ category.label }}</span>
+    </button>
+  </div>
+</section>

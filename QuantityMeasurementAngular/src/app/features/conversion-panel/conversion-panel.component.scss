@@ -1,0 +1,26 @@
+.panel {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 0.6rem;
+}
+
+.result {
+  margin-top: 1rem;
+  color: #2e7d32;
+}
+
+.error {
+  margin-top: 1rem;
+  color: #c62828;
+}

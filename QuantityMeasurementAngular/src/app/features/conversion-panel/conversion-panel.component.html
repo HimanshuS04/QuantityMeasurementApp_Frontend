@@ -1,0 +1,29 @@
+<div class="panel">
+  <div class="grid">
+    <div>
+      <label>Value</label>
+      <input [(ngModel)]="value" type="number" />
+    </div>
+
+    <div>
+      <label>From Unit</label>
+      <select [(ngModel)]="fromUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>To Unit</label>
+      <select [(ngModel)]="toUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <button (click)="convert()" [disabled]="isLoading">
+      {{ isLoading ? 'Converting...' : 'Convert' }}
+    </button>
+  </div>
+
+  <p class="result" *ngIf="result">Converted Value: {{ result }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

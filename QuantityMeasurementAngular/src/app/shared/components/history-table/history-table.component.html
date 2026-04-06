@@ -1,0 +1,26 @@
+<div *ngIf="!operations || operations.length === 0" class="empty-state">
+  No history available.
+</div>
+
+<div *ngIf="operations && operations.length > 0" class="table-wrapper">
+  <table class="history-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Operation</th>
+        <th>First</th>
+        <th>Second</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let op of operations">
+        <td>{{ op.category }}</td>
+        <td>{{ op.operationType }}</td>
+        <td>{{ op.firstValue }} {{ op.firstUnit }}</td>
+        <td>{{ op.secondValue ?? '' }} {{ op.secondUnit ?? '' }}</td>
+        <td>{{ op.resultValue ?? '' }} {{ op.resultUnit ?? '' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

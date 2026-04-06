@@ -1,0 +1,28 @@
+.section-card {
+  margin-bottom: 1rem;
+}
+
+.card-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.choice-card {
+  border: 2px solid transparent;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.choice-card.active {
+  border-color: #4caf50;
+}
+
+.icon {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}

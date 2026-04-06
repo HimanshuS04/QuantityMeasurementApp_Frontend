@@ -1,0 +1,23 @@
+.admin-history-card {
+  margin-top: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.admin-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-form input,
+.admin-form button {
+  padding: 0.6rem;
+}
+
+.error {
+  color: #c62828;
+  margin-bottom: 1rem;
+}

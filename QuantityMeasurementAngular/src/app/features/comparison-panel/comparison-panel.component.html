@@ -1,0 +1,34 @@
+<div class="panel">
+  <div class="grid">
+    <div>
+      <label>First Value</label>
+      <input [(ngModel)]="firstValue" type="number" />
+    </div>
+
+    <div>
+      <label>First Unit</label>
+      <select [(ngModel)]="firstUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Second Value</label>
+      <input [(ngModel)]="secondValue" type="number" />
+    </div>
+
+    <div>
+      <label>Second Unit</label>
+      <select [(ngModel)]="secondUnit">
+        <option *ngFor="let unit of units" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <button (click)="compare()" [disabled]="isLoading">
+      {{ isLoading ? 'Comparing...' : 'Compare' }}
+    </button>
+  </div>
+
+  <p class="result" *ngIf="result">Equal: {{ result }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

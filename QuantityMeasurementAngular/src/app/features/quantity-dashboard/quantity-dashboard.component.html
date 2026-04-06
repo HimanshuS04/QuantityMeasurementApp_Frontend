@@ -1,0 +1,26 @@
+<section class="dashboard">
+  <app-category-selector
+    [selectedCategory]="selectedCategory"
+    (selectedCategoryChange)="selectedCategory = $event">
+  </app-category-selector>
+
+  <app-action-tabs
+    [selectedAction]="selectedAction"
+    (selectedActionChange)="selectedAction = $event">
+  </app-action-tabs>
+
+  <app-comparison-panel
+    *ngIf="selectedAction === 'Comparison'"
+    [category]="selectedCategory">
+  </app-comparison-panel>
+
+  <app-conversion-panel
+    *ngIf="selectedAction === 'Conversion'"
+    [category]="selectedCategory">
+  </app-conversion-panel>
+
+  <app-arithmetic-panel
+    *ngIf="selectedAction === 'Arithmetic'"
+    [category]="selectedCategory">
+  </app-arithmetic-panel>
+</section>

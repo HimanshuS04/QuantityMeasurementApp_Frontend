@@ -1,0 +1,14 @@
+<header class="qm-header">
+  <div class="brand-block">
+    <h1>Quantity Measurement</h1>
+  </div>
+
+  <div class="session-info">
+    <button *ngIf="!isLoggedIn" (click)="authClicked.emit()">Login / Signup</button>
+
+    <ng-container *ngIf="isLoggedIn">
+      <span>Logged in as: {{ email }}</span>
+      <button (click)="logoutClicked.emit()">Logout</button>
+    </ng-container>
+  </div>
+</header>

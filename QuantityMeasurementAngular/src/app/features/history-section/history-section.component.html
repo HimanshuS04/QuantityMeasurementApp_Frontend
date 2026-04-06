@@ -1,0 +1,22 @@
+<section class="section-card">
+  <h2>History</h2>
+
+  <div *ngIf="!isLoggedIn" class="login-note">
+    Login is required to view history.
+  </div>
+
+  <div *ngIf="isLoggedIn" class="history-box">
+    <div class="history-header">
+      <h3>My History</h3>
+      <button (click)="loadMyHistory()" [disabled]="isLoading">
+        {{ isLoading ? 'Loading...' : 'Load My History' }}
+      </button>
+    </div>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <app-history-table [operations]="myHistory"></app-history-table>
+
+    <app-admin-history-panel *ngIf="isAdmin"></app-admin-history-panel>
+  </div>
+</section>

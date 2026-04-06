@@ -1,0 +1,29 @@
+<app-header
+  [isLoggedIn]="isLoggedIn"
+  [email]="userEmail"
+  (logoutClicked)="handleLogout()"
+  (authClicked)="openAuthPanel()">
+</app-header>
+
+<main class="app-shell">
+  <section class="welcome-card">
+    <h2>Welcome to Quantity Measurement</h2>
+    <p>
+      You can compare, convert, add, subtract, and divide quantities without logging in.
+      Login is only required to view your history.
+    </p>
+  </section>
+
+  <app-auth-panel
+    *ngIf="showAuthPanel"
+    (loginSuccess)="handleLogin($event)"
+    (closePanel)="closeAuthPanel()">
+  </app-auth-panel>
+
+  <app-quantity-dashboard></app-quantity-dashboard>
+
+  <app-history-section
+    [isLoggedIn]="isLoggedIn"
+    [isAdmin]="isAdmin">
+  </app-history-section>
+</main>

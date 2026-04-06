@@ -1,0 +1,19 @@
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #e7ebff;
+  color: #3f51b5;
+}
+
+.tabs button.active {
+  background: #3f51b5;
+  color: white;
+}
