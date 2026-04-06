@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   userEmail = '';
   isAdmin = false;
-
   showAuthPanel = false;
 
   constructor(private sessionService: SessionService) {}

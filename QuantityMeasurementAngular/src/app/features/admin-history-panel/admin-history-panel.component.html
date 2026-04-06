@@ -1,8 +1,8 @@
 <div class="admin-history-card">
-  <h3>Admin: User History</h3>
+  <h3>Admin: Check Any User History</h3>
 
   <div class="admin-form">
-    <input [(ngModel)]="userId" type="number" placeholder="User ID" />
+    <input [(ngModel)]="userId" type="number" placeholder="Enter User ID" />
     <button (click)="loadHistory()" [disabled]="isLoading">
       {{ isLoading ? 'Loading...' : 'Load User History' }}
     </button>

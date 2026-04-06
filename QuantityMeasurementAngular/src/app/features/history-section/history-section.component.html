@@ -17,6 +17,10 @@
 
     <app-history-table [operations]="myHistory"></app-history-table>
 
-    <app-admin-history-panel *ngIf="isAdmin"></app-admin-history-panel>
+    <div *ngIf="isAdmin" class="admin-section">
+      <h3>Admin Controls</h3>
+      <p>You can view history of any user by entering their User ID below.</p>
+      <app-admin-history-panel></app-admin-history-panel>
+    </div>
   </div>
 </section>

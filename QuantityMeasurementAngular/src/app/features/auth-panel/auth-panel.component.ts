@@ -49,16 +49,33 @@ export class AuthPanelComponent {
 
     this.authService.login(this.loginEmail, this.loginPassword).subscribe({
       next: (response) => {
-        const email = response.email || this.loginEmail;
-        const role = response.role || 'User';
+        const token = response.token;
+        const parsed = this.parseJwt(token);
 
-        this.sessionService.setToken(response.token);
+        const email =
+          response.email ||
+          parsed?.email ||
+          parsed?.['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'] ||
+          this.loginEmail;
+
+        const role =
+          response.role ||
+          parsed?.role ||
+          parsed?.Role ||
+          parsed?.['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] ||
+          'User';
+
+        this.sessionService.setToken(token);
         this.sessionService.setEmail(email);
         this.sessionService.setRole(role);
 
         this.messageType = 'success';
         this.message = 'Login successful.';
         this.isLoginLoading = false;
+
+        console.log('AUTH LOGIN RESPONSE:', response);
+        console.log('PARSED JWT:', parsed);
+        console.log('FINAL ROLE USED:', role);
 
         this.loginSuccess.emit({ email, role });
         this.cdr.detectChanges();
@@ -106,6 +123,21 @@ export class AuthPanelComponent {
         this.cdr.detectChanges();
       }
     });
+  }
+
+  private parseJwt(token: string): any | null {
+    if (!token) return null;
+
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+
+    try {
+      const payload = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+      const decoded = atob(payload);
+      return JSON.parse(decoded);
+    } catch {
+      return null;
+    }
   }
 
   private extractError(err: any, fallback: string): string {
