@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:5076/api/v1'
+  apiBaseUrl: 'https://quantity-measurement-api-uwby.onrender.com'
 };
