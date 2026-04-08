@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SessionService } from './session.service';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
-  private baseUrl = 'http://localhost:5076/api/v1/quantities/history';
+  // private baseUrl = 'http://localhost:5076/api/v1/quantities/history';
+    private baseUrl = `${environment.apiBaseUrl}/quantities/history`;
+
 
   constructor(
     private http: HttpClient,

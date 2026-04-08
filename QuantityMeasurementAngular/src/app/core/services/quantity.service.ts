@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SessionService } from './session.service';
+import { environment } from '../../../environments/environment';
+
 
 export interface QuantityDto {
   category: string;
@@ -13,7 +15,9 @@ export interface QuantityDto {
   providedIn: 'root'
 })
 export class QuantityService {
-  private baseUrl = 'http://localhost:5076/api/v1/quantities';
+  // private baseUrl = 'http://localhost:5076/api/v1/quantities';
+    private baseUrl = `${environment.apiBaseUrl}/quantities`;
+
 
   constructor(
     private http: HttpClient,
